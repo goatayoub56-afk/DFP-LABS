@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DFP Labs | تصميم مواقع وأتمتة أعمال</title>
+<meta name="description" content="DFP Labs — تصميم مواقع احترافية وأتمتة أعمال. Discipline. Focus. Pressure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D12;
+    --panel:#12161D;
+    --panel-line: rgba(217,169,78,0.14);
+    --gold:#D9A94E;
+    --cyan:#3FD0D4;
+    --text:#EDEEF2;
+    --muted:#8890A0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important;}
+  }
+
+  .wrap{
+    max-width:460px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* Header */
+  header{
+    padding:26px 0 10px;
+    text-align:center;
+  }
+  .brand{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.95rem;
+    color:var(--muted);
+    border:1px solid var(--panel-line);
+    padding:7px 16px;
+    border-radius:100px;
+  }
+  .brand .cursor{
+    display:inline-block;
+    width:7px; height:14px;
+    background:var(--gold);
+    animation:blink 1.1s step-end infinite;
+  }
+  @keyframes blink{
+    0%,100%{opacity:1;}
+    50%{opacity:0;}
+  }
+
+  /* Hero */
+  .hero{
+    text-align:center;
+    padding:44px 0 36px;
+  }
+  .hero h1{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:2.6rem;
+    letter-spacing:1px;
+    color:var(--text);
+  }
+  .hero h1 span{color:var(--gold);}
+  .tagline{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:4px;
+    color:var(--cyan);
+    margin-top:10px;
+  }
+  .hero p{
+    color:var(--muted);
+    font-size:0.95rem;
+    max-width:340px;
+    margin:22px auto 0;
+  }
+
+  /* Services */
+  .section{
+    padding:28px 0;
+  }
+  .section-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:2px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .section-label::after{
+    content:'';
+    flex:1;
+    height:1px;
+    background:var(--panel-line);
+  }
+
+  .service-card{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:10px;
+    padding:22px 20px;
+    margin-bottom:14px;
+    position:relative;
+    overflow:hidden;
+  }
+  .service-card::before{
+    content:'';
+    position:absolute;
+    top:0; right:0; bottom:0;
+    width:3px;
+  }
+  .service-card.web::before{background:var(--gold);}
+  .service-card.auto::before{background:var(--cyan);}
+  .service-card .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+  .service-card.web .tag{color:var(--gold);}
+  .service-card.auto .tag{color:var(--cyan);}
+  .service-card h3{
+    font-size:1.15rem;
+    margin:10px 0 12px;
+    font-weight:700;
+  }
+  .service-card ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .service-card li{
+    color:var(--muted);
+    font-size:0.86rem;
+    display:flex;
+    gap:8px;
+    align-items:baseline;
+  }
+  .service-card.web li::before{content:'—'; color:var(--gold);}
+  .service-card.auto li::before{content:'—'; color:var(--cyan);}
+
+  /* Work */
+  .work-card{
+    background:var(--panel);
+    border:1px solid var(--panel-line);
+    border-radius:10px;
+    padding:18px 20px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    transition:border-color 0.3s ease;
+  }
+  .work-card:active{border-color:var(--gold);}
+  .work-info h4{
+    font-size:1rem;
+    font-weight:700;
+    margin-bottom:3px;
+  }
+  .work-info span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.68rem;
+    color:var(--muted);
+    letter-spacing:0.5px;
+  }
+  .work-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    color:var(--bg);
+    background:var(--gold);
+    padding:9px 14px;
+    border-radius:6px;
+    white-space:nowrap;
+    font-weight:600;
+  }
+
+  /* Contact */
+  .contact-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:0.95rem;
+    margin-bottom:12px;
+  }
+  .contact-btn.whatsapp{
+    background:var(--gold);
+    color:var(--bg);
+  }
+  .contact-btn.instagram{
+    background:transparent;
+    border:1px solid var(--panel-line);
+    color:var(--text);
+  }
+
+  /* Footer */
+  footer{
+    text-align:center;
+    padding:36px 0 40px;
+  }
+  footer p{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    color:var(--muted);
+    letter-spacing:0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="brand"><span class="cursor"></span> DFP_LABS</div>
+  </header>
+
+  <section class="hero">
+    <h1>DFP <span>Labs</span></h1>
+    <div class="tagline">DISCIPLINE · FOCUS · PRESSURE</div>
+    <p>نصمملك موقع احترافي، ونبنيلك نظام يشتغل لحاله — طلبات، ردود، وتنبيهات أوتوماتيك.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">خدماتنا</div>
+
+    <div class="service-card web">
+      <span class="tag">Web Design</span>
+      <h3>تصميم مواقع احترافية</h3>
+      <ul>
+        <li>هوية بصرية مخصصة لكل عميل</li>
+        <li>تصميم متجاوب مع كل الأجهزة</li>
+        <li>نشر وتسليم سريع وجاهز للاستخدام</li>
+      </ul>
+    </div>
+
+    <div class="service-card auto">
+      <span class="tag">Automation</span>
+      <h3>أتمتة الأعمال</h3>
+      <ul>
+        <li>استلام وتأكيد الطلبات على واتساب تلقائياً</li>
+        <li>تنبيهات فورية بكل طلب جديد</li>
+        <li>ردود جاهزة توفر وقتك اليومي</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">أعمالنا</div>
+
+    <a class="work-card" href="#" target="_blank" rel="noopener">
+      <div class="work-info">
+        <h4>بيت الجمر</h4>
+        <span>مطعم — مشاوي</span>
+      </div>
+      <span class="work-btn">شاهد الموقع</span>
+    </a>
+
+    <a class="work-card" href="#" target="_blank" rel="noopener">
+      <div class="work-info">
+        <h4>A2Z Hypermarket</h4>
+        <span>سوبرماركت</span>
+      </div>
+      <span class="work-btn">شاهد الموقع</span>
+    </a>
+
+    <a class="work-card" href="#" target="_blank" rel="noopener">
+      <div class="work-info">
+        <h4>بخاري الخليج</h4>
+        <span>مطعم — بخاري خليجي</span>
+      </div>
+      <span class="work-btn">شاهد الموقع</span>
+    </a>
+
+    <a class="work-card" href="#" target="_blank" rel="noopener">
+      <div class="work-info">
+        <h4>Hawak Cafe</h4>
+        <span>مقهى — قهوة مختصة</span>
+      </div>
+      <span class="work-btn">شاهد الموقع</span>
+    </a>
+  </section>
+
+  <section class="section">
+    <div class="section-label">تواصل معنا</div>
+    <a class="contact-btn whatsapp" href="https://wa.me/9647800000000" target="_blank" rel="noopener">
+      تواصل عبر واتساب
+    </a>
+    <a class="contact-btn instagram" href="https://instagram.com/dfp.labs" target="_blank" rel="noopener">
+      تابعنا على إنستغرام
+    </a>
+  </section>
+
+  <footer>
+    <p>© DFP 2026 — DISCIPLINE. FOCUS. PRESSURE.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
